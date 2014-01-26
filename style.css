@@ -1,0 +1,51 @@
+.instawp-info-holder{
+	background:#f2f2f2;
+	padding:20px;
+}
+.instawp-info-holder img, .instawp-info-holder p{
+	display:block;
+	margin:auto;
+	text-align:center;
+}
+.instawp-info-holder #hashtag{
+	font-weight:bold;
+}
+.instawp-wrap{
+	display:block;
+	float:left;
+	width:100%;
+	background:#d7d3ce;
+}
+.ig-icon{
+	width:18px;
+	height:18px;
+	margin-right:5px;
+}
+.instagram-photo{
+	width:24.5%;
+	padding:5px;
+	margin:5px auto;
+	float:left;
+	display:inline-block;
+}
+.instagram-photo .instawp-image{
+	width:100%;
+	padding:0;
+	margin:5px;
+	-webkit-box-shadow: 0 0 5px 0 #000000;
+	box-shadow: 0 0 5px 0 #000000;
+}
+.instagram-photo p, .instagram-photo a, .instagram-photo a:hover, .instagram-photo a:focus, .instagram-photo a:active{
+	display:block;
+	color:#000;
+	text-decoration:none;
+	margin-left:5px;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: " ";
+}
+.clearfix:after {
+  clear: both;
+}
