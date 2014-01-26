@@ -1,7 +1,5 @@
 instawp
 =======
-Description
-=======
 InstaWp lets you display medias from Instagram with simple shortcode uses. These shortcodes can be used in posts, pages, and widgets.
 Installation
 =======
