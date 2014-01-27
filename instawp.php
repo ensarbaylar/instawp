@@ -20,12 +20,17 @@ function instawp_get_media( $atts ) {
 		array(
 			'hashtag' => '',
 			'count' => '10',
+			'header' => 'false'
 		), $atts )
 	);
 	
-	$media = instawp_searchHashTag($atts['hashtag'], $atts['count']);
+	$media = instawp_searchHashTag($atts['hashtag'], $atts['count'];
 	
-	$result = '<div class="instawp-info-holder"><img src="'.plugins_url( 'img/icon-lg.png' , __FILE__ ).'" /><p>Post on Instagram with</p><p id="hashtag">#'.$atts['hashtag'].'</p></div>';
+	$result = '';
+	if ( $atts['header'] == 'true' ){
+		$result .= '<div class="instawp-info-holder"><img src="'.plugins_url( 'img/icon-lg.png' , __FILE__ ).'" /><p>Post on Instagram with</p><p id="hashtag">#'.$atts['hashtag'].'</p></div>';
+	}
+	
 	$result .= '<div class="clearfix"></div>';
     $result .= '<div class="instawp-wrap">';
 	$i = 0;
