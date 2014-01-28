@@ -14,19 +14,35 @@
 	display:block;
 	float:left;
 	width:100%;
-	background:#d7d3ce;
 }
 .ig-icon{
 	width:18px;
 	height:18px;
 	margin-right:5px;
 }
-.instagram-photo{
-	width:24.5%;
-	padding:5px;
-	margin:5px auto;
+.item-wrap{
+	margin:0;
+	padding:0;
 	float:left;
 	display:inline-block;
+}
+.item-wrap.col-item-1{
+	width:100%;
+}
+.item-wrap.col-item-2{
+	width:50%;
+}
+.item-wrap.col-item-3{
+	width:33.333333%;
+}
+.item-wrap.col-item-4{
+	width:25%;
+}
+.item-wrap.col-item-5{
+	width:20%;
+}
+.instagram-photo{
+	padding:5px;
 }
 .instagram-photo .instawp-image{
 	width:100%;
@@ -35,11 +51,15 @@
 	-webkit-box-shadow: 0 0 5px 0 #000000;
 	box-shadow: 0 0 5px 0 #000000;
 }
-.instagram-photo p, .instagram-photo a, .instagram-photo a:hover, .instagram-photo a:focus, .instagram-photo a:active{
+.instagram-photo p, .instagram-photo a{
 	display:block;
 	color:#000;
-	text-decoration:none;
 	margin-left:5px;
+	text-decoration:none;
+}
+.instagram-photo a:hover, .instagram-photo a:focus, .instagram-photo a:active{
+	color:#000;
+	text-decoration:none;
 }
 .clearfix:before,
 .clearfix:after {

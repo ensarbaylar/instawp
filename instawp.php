@@ -20,11 +20,16 @@ function instawp_get_media( $atts ) {
 		array(
 			'hashtag' => '',
 			'count' => '10',
-			'header' => 'false'
+			'header' => 'false',
+			'columns' => '3'
 		), $atts )
 	);
 	
-	$media = instawp_searchHashTag($atts['hashtag'], $atts['count'];
+	$media = instawp_searchHashTag($atts['hashtag'], $atts['count']);
+	
+	if ( $atts['columns'] < 1 || $atts['columns'] > 5 ){
+		$atts['columns'] = 3;
+	}
 	
 	$result = '';
 	if ( $atts['header'] == 'true' ){
@@ -35,14 +40,14 @@ function instawp_get_media( $atts ) {
     $result .= '<div class="instawp-wrap">';
 	$i = 0;
 	foreach($media->data as $image){
-		if ( $i % 4 == 0 ) {
+		if ( $i % $atts['columns'] == 0 ) {
 			$result .= '<div class="clearfix"></div>';
 		}
-		$result .= '<div class="instagram-photo">';
+		$result .= '<div class="item-wrap col-item-' . $atts['columns'] . '"><div class="instagram-photo">';
         $result .= '<a href="http://instagram.com/'.$image->user->username.'"><img src="'.plugins_url( 'img/icon-sm.png' , __FILE__ ).'" class="ig-icon" />'.$image->user->username.'</a>';
         $result .= '<a href="'.$image->link.'" target="_blank"><img src="'.$image->images->standard_resolution->url.'" class="instawp-image" /></a>';
 		$result .= '<p>#'.$atts['hashtag'].'</p>';
-		$result .= '</div>';
+		$result .= '</div></div>';
 		
 		$i++;
 	}
@@ -51,14 +56,14 @@ function instawp_get_media( $atts ) {
 			$media = instawp_searchHashTag($atts['hashtag'], $atts['count'], $media->pagination->next_max_tag_id);
 			foreach($media->data as $image){
 				if( $i < $atts['count'] ){
-					if ( $i % 4 == 0 ) {
+					if ( $i % $atts['columns'] == 0 ) {
 						$result .= '<div class="clearfix"></div>';
 					}
-					$result .= '<div class="instagram-photo">';
+					$result .= '<div class="item-wrap col-item-' . $atts['columns'] . '"><div class="instagram-photo">';
 					$result .= '<a href="http://instagram.com/'.$image->user->username.'"><img src="'.plugins_url( 'img/icon-sm.png' , __FILE__ ).'" class="ig-icon" />'.$image->user->username.'</a>';
-					$result .= '<a href="'.$image->link.'" target="_blank"><img src="'.$image->images->standard_resolution->url.'" /></a>';
+					$result .= '<a href="'.$image->link.'" target="_blank"><img src="'.$image->images->standard_resolution->url.'" class="instawp-image" /></a>';
 					$result .= '<p>#'.$atts['hashtag'].'</p>';
-					$result .= '</div>';
+					$result .= '</div></div>';
 				}
 				$i++;
 			}
